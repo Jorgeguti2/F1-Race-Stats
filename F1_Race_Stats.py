@@ -9,16 +9,14 @@ from datetime import datetime
 now = datetime.now()
 current_year = now.year
 
-# Navigate to the Results page from the HomePage
-homepage_URL = f"https://www.formula1.com/"
-homepage = requests.get(homepage_URL).text
-homepage_doc = BeautifulSoup(homepage, "html.parser")
-
-results_URL = homepage_doc.find(href=f"https://www.formula1.com/en/results/{current_year}/races").get("href")
+# Get to the Results page
+results_URL = f"https://www.formula1.com/en/results/{current_year}/races"
 results_page = requests.get(results_URL).text
 results_doc = BeautifulSoup(results_page, "html.parser")
 
 # Get all F1 Racing Season Years
 years_table = results_doc.find_all(attrs={'data-name': 'year'})
-
+for i in years_table:
+    print(i.text)
+# Go year by year grabbing all information (Grand Prix, Date, Winner, Car, Laps)
 
