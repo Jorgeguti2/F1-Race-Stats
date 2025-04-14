@@ -1,8 +1,8 @@
 # Notes:
-    # React Frontend
-    # Django Backend
-    # SQLite
-    # SSRS
+    # 1. SQLite
+    # 2. Django Backend
+    # 3. React Frontend
+    # 4. SSRS
 
 # Import all needed libraries
 from bs4 import BeautifulSoup
