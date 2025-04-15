@@ -1,4 +1,4 @@
-# F1-Race-Stats
+# 🏎️ F1-Race-Stats
 A web scraping program created to get race and driver information from the Formula 1 Official website and store it in a database file.
 
 ### Build: Run Instructions to Get Each Race's Winner Statistics
