@@ -5,7 +5,7 @@ A web scraping program created to get race and driver information from the Formu
 
 Install the needed libraries with the following commands if you are on Windows:
 ```bash
-pip3 install beautifulsoup4
+pip install beautifulsoup4
 pip install requests
 ```
 
@@ -28,7 +28,7 @@ python3 F1_Race_Winner_Stats.py
 
 Install the needed libraries with the following commands if you are on Windows:
 ```bash
-pip3 install beautifulsoup4
+pip install beautifulsoup4
 pip install requests
 ```
 
