@@ -8,6 +8,14 @@
 from bs4 import BeautifulSoup
 import requests
 from datetime import datetime
+import sqlite3
+
+# Create an empty database where we store the information
+connection = sqlite3.connect("Winners.db")
+# Create cursor object to use SQL commands
+cursor = connection.cursor()
+
+cursor.execute("create table Winners (grand_prix text, date text, winner text, car text, laps integer, time text)")
 
 # Get the current year
     # Note: we do this because the website updates the href every year with the current year
@@ -40,7 +48,14 @@ for i in years_table:
         winner = (tr[2].text)[:-3]
         car = tr[3].text
         laps = tr[4].text
+        if laps == '':
+            laps = None
+        else:
+            laps = int(laps)
         time = tr[5].text
-        print(grand_prix, date, winner, car, laps, time)
+        cursor.execute("insert into Winners values (?,?,?,?,?,?)", (grand_prix, date, winner, car, laps, time))
 
-    print()
+# Terminate database connection after we permanently commit the data to
+# the database to not lose the data after the program stops runnning
+connection.commit()
+connection.close()
