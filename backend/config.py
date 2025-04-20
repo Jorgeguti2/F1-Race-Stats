@@ -1,6 +1,7 @@
 from decouple import config
 import os
 
+# Where we create the database
 BASE_DIR = os.path.dirname(os.path.realpath(__file__))
 
 class Config:
