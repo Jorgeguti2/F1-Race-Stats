@@ -37,7 +37,7 @@ class HelloResource(Resource):
 # Create different resource classes that are going to work with our model and help us access
 # the different methods we are going to carry out
 @api.route('/drivers')
-class DriversResource(Drivers):
+class DriversResource(Resource):
     def get(self):
         """ Get all drivers """
         pass
@@ -49,7 +49,7 @@ class DriversResource(Drivers):
 
 # Create a route to help us delete, update, and get one specfic driver
 @api.route('/drivers/<int:id>')
-class DriverResource(Drivers):
+class DriverResource(Resource):
     def get(self, id):
         """ Get a driver by id"""
         pass
