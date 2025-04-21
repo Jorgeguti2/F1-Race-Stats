@@ -26,3 +26,4 @@ class Drivers(db.Model):
     def update(self, name, abbreviation):
         self.name = name
         self.abbreviation = abbreviation
+        db.session.commit()
