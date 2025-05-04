@@ -3,6 +3,7 @@ from flask_restx import Api, Resource, fields
 from config import DevConfig
 from  models import Drivers
 from exts import db
+from flask_migrate import Migrate
 
 # Create an instance of the flask app
 app = Flask(__name__)
@@ -12,6 +13,10 @@ app.config.from_object(DevConfig)
 
 # Initialize db instance to register it with our application
 db.init_app(app)
+
+# Make sure we instantiate flask migrate to work with the app
+# Helps create a migration repository that keeps track of all db changes/versions
+migrate = Migrate(app, db)
 
 # Create an instance of the api class
 # Specify to it that the app to the api class is our current app
