@@ -4,6 +4,7 @@ from  models import Drivers
 from exts import db
 from flask_migrate import Migrate
 from drivers import driver_ns
+from flask_cors import CORS
 
 # Create an app function that creates the app and returns it
 def create_app(config):
@@ -13,6 +14,9 @@ def create_app(config):
 
     # Set devconfig to work with our app
     app.config.from_object(config)
+
+    # configures our api to work with an app that is on a different port
+    CORS(app)
 
     # Initialize db instance to register it with our application
     db.init_app(app)
